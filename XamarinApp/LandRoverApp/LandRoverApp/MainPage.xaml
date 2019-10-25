@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LandRoverApp.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+    xmlns:local="clr-namespace:LandRoverApp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+
+        <Button
+            x:Name="Connect"
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            Clicked="ScanClicked"
+            Text="Scan"
+            VerticalOptions="CenterAndExpand" />
+        <gauge:SfCircularGauge
+            x:Name="VoltageGuage"
+            Grid.Row="1"
+            Grid.Column="0"
+            Margin="10"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <gauge:SfCircularGauge.Annotations>
+                <gauge:GaugeAnnotation ViewMargin="10,50">
+                    <gauge:GaugeAnnotation.View>
+                        <Label
+                            x:Name="VoltageGaugeAnnotationsLabel"
+                            FontSize="15"
+                            Text="12.2 V"
+                            TextColor="Black" />
+                    </gauge:GaugeAnnotation.View>
+                </gauge:GaugeAnnotation>
+            </gauge:SfCircularGauge.Annotations>
+            <gauge:SfCircularGauge.Headers>
+                <gauge:Header
+                    ForegroundColor="Black"
+                    Text=""
+                    TextSize="20" />
+            </gauge:SfCircularGauge.Headers>
+            <gauge:SfCircularGauge.Scales>
+                <gauge:Scale
+                    EndValue="0"
+                    StartAngle="180"
+                    StartValue="20"
+                    SweepAngle="180">
+                    <gauge:Scale.Ranges>
+                        <gauge:Range EndValue="0" StartValue="0" />
+                    </gauge:Scale.Ranges>
+
+                    <gauge:Scale.Pointers>
+                        <gauge:NeedlePointer Value="12" />
+                        <!--<gauge:RangePointer Value="0"  />
+                        <gauge:MarkerPointer Value="0" />-->
+                    </gauge:Scale.Pointers>
+
+                </gauge:Scale>
+            </gauge:SfCircularGauge.Scales>
+        </gauge:SfCircularGauge>
+
+        <gauge:SfCircularGauge
+            x:Name="WaterTempGuage"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="10"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <gauge:SfCircularGauge.Annotations>
+                <gauge:GaugeAnnotation ViewMargin="10,50">
+                    <gauge:GaugeAnnotation.View>
+                        <Label
+                            x:Name="WaterTempGaugeAnnotationsLabel"
+                            FontSize="15"
+                            Text="0 C"
+                            TextColor="Black" />
+                    </gauge:GaugeAnnotation.View>
+                </gauge:GaugeAnnotation>
+            </gauge:SfCircularGauge.Annotations>
+            <gauge:SfCircularGauge.Headers>
+                <gauge:Header
+                    ForegroundColor="Black"
+                    Text=""
+                    TextSize="20" />
+            </gauge:SfCircularGauge.Headers>
+            <gauge:SfCircularGauge.Scales>
+                <gauge:Scale
+                    EndValue="0"
+                    Interval="20"
+                    StartAngle="180"
+                    StartValue="140"
+                    SweepAngle="180">
+                    <gauge:Scale.Ranges>
+                        <gauge:Range EndValue="0" StartValue="0" />
+                    </gauge:Scale.Ranges>
+
+                    <gauge:Scale.Pointers>
+                        <gauge:NeedlePointer Value="0" />
+                        <!--<gauge:RangePointer Value="0"  />
+                        <gauge:MarkerPointer Value="0" />-->
+                    </gauge:Scale.Pointers>
+
+                </gauge:Scale>
+            </gauge:SfCircularGauge.Scales>
+        </gauge:SfCircularGauge>
+
+        <gauge:SfCircularGauge
+            x:Name="SpeedoGauge"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Margin="10"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <gauge:SfCircularGauge.Annotations>
+
+                <gauge:GaugeAnnotation ViewMargin="10,50">
+                    <gauge:GaugeAnnotation.View>
+                        <Label
+                            x:Name="SpeedoAnnotationsLabel"
+                            FontSize="25"
+                            Text="0 MPH"
+                            TextColor="Black" />
+                    </gauge:GaugeAnnotation.View>
+                </gauge:GaugeAnnotation>
+            </gauge:SfCircularGauge.Annotations>
+
+            <gauge:SfCircularGauge.Headers>
+                <gauge:Header
+                    ForegroundColor="Black"
+                    Text=""
+                    TextSize="20" />
+            </gauge:SfCircularGauge.Headers>
+
+            <gauge:SfCircularGauge.Scales>
+
+                <gauge:Scale
+                    EndValue="100"
+                    Interval="10"
+                    StartValue="0">
+                    <gauge:Scale.Ranges>
+                        <!--<gauge:Range EndValue="4000" StartValue="0" />-->
+                    </gauge:Scale.Ranges>
+                    <gauge:Scale.Pointers>
+                        <gauge:NeedlePointer Value="0" />
+                        <!--<gauge:RangePointer Value="700" />
+                        <gauge:MarkerPointer Value="50" />-->
+                    </gauge:Scale.Pointers>
+                </gauge:Scale>
+            </gauge:SfCircularGauge.Scales>
+        </gauge:SfCircularGauge>
+
+        <gauge:SfCircularGauge
+            x:Name="TachoGauge"
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            Margin="10"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <gauge:SfCircularGauge.Annotations>
+
+                <gauge:GaugeAnnotation ViewMargin="10,50">
+                    <gauge:GaugeAnnotation.View>
+                        <Label
+                            x:Name="TachoGaugeAnnotationsLabel"
+                            FontSize="15"
+                            Text="0 RPM"
+                            TextColor="Black" />
+                    </gauge:GaugeAnnotation.View>
+                </gauge:GaugeAnnotation>
+            </gauge:SfCircularGauge.Annotations>
+            <gauge:SfCircularGauge.Headers>
+                <gauge:Header
+                    ForegroundColor="Black"
+                    Text=""
+                    TextSize="20" />
+            </gauge:SfCircularGauge.Headers>
+            <gauge:SfCircularGauge.Scales>
+                <gauge:Scale
+                    EndValue="40"
+                    Interval="50"
+                    StartValue="0">
+                    <gauge:Scale.Ranges>
+                        <!--<gauge:Range EndValue="4000" StartValue="0" />-->
+                    </gauge:Scale.Ranges>
+                    <gauge:Scale.Pointers>
+                        <gauge:NeedlePointer Value="600" />
+                        <!--<gauge:RangePointer Value="700" />
+                        <gauge:MarkerPointer Value="50" />-->
+                    </gauge:Scale.Pointers>
+                </gauge:Scale>
+            </gauge:SfCircularGauge.Scales>
+        </gauge:SfCircularGauge>
+
+    </Grid>
+
+</ContentPage>
